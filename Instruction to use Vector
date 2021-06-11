@@ -13,13 +13,19 @@ ten-vector.push_back(ten-cua-phan-tu);
 
 2. assign(): Nó gán một giá trị mới cho các phần tử vector bằng cách thay thế các giá trị cũ.
 
-ten-vector.assign(int size, int value);
+ten-vector.assign(int size, int value);(số lần thay đổi giá trị (tính từ lúc ban đầu) - giá trị muốn thay đổi )
+Ex:// fill the array with 12 seven times 
+    vec.assign(7, 12); 
 
 3. pop_back(): Hàm pop_back () được sử dụng để xóa đi phần tử cuối cùng một vector.
 
 ten-vector.pop_back();
 
 4. insert(): Hàm này chèn các phần tử mới vào trước phần tử trước vị trí được trỏ bởi vòng lặp. Chúng ta cũng có thể chuyển một số đối số thứ ba, đếm số lần phần tử được chèn vào trước vị trí được trỏ.
+//Mình mới test thì chỉ có v.begin() xài được còn v.at(n) thì không dùng được => add phần tử vào đầu Vector
+
+v.insert(v.begin()+2,20);
+=> Đỉnh vcl đéo nghĩ ra luôn ấy
 
 ten-vector.insert(position, value);
 
