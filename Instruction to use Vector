@@ -34,6 +34,15 @@ ten-vector.insert(position, value);
 ten-vector.erase(position);
 
 ten-vector.erase(start-position, end-position);
+//ĐỌC PHẦN NÀY TRÊN STACKOVERFLOW ĐỈNH LUÔN
+The erase method will be used in two ways:
+
+Erasing single element:
+
+vector.erase( vector.begin() + 3 ); // Deleting the fourth element
+Erasing range of elements:
+
+vector.erase( vector.begin() + 3, vector.begin() + 5 ); // Deleting from fourth element to sixth element
 
 6. emplace(): Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
 
