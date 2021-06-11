@@ -1,0 +1,316 @@
+Các hàm của Vectors trong C ++
+Vector trong STL cung cấp cho chúng ta nhiều chức năng hữu ích khác nhau.
+
+1. Modifiers
+2. Iterators
+3. Capacity
+4. Element access
+
+Modifiers
+1. push_back(): Hàm đẩy một phần tử vào vị trí sau cùng của vector. Nếu kiểu của đối tượng được truyền dưới dạng tham số trong push_back() không giống với kiểu của vector thì sẽ bị ném ra.
+
+ten-vector.push_back(ten-cua-phan-tu);
+
+2. assign(): Nó gán một giá trị mới cho các phần tử vector bằng cách thay thế các giá trị cũ.
+
+ten-vector.assign(int size, int value);
+
+3. pop_back(): Hàm pop_back () được sử dụng để xóa đi phần tử cuối cùng một vector.
+
+ten-vector.pop_back();
+
+4. insert(): Hàm này chèn các phần tử mới vào trước phần tử trước vị trí được trỏ bởi vòng lặp. Chúng ta cũng có thể chuyển một số đối số thứ ba, đếm số lần phần tử được chèn vào trước vị trí được trỏ.
+
+ten-vector.insert(position, value);
+
+5. erase(): Hàm được sử dụng để xóa các phần tử tùy theo vị trí vùng chứa
+
+ten-vector.erase(position);
+
+ten-vector.erase(start-position, end-position);
+
+6. emplace(): Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
+
+ten-vector.emplace(ten-vector.position, element);
+
+7. emplace_back(): Nó được sử dụng để chèn một phần tử mới vào vùng chứa vector, phần tử mới sẽ được thêm vào cuối vector
+
+ten-vector.emplace_back(value);
+8. swap(): Hàm được sử dụng để hoán đổi nội dung của một vector này với một vector khác cùng kiểu. Kích thước có thể khác nhau.
+
+ten-vector-1.swap(ten-vector-2);
+
+9. clear(): Hàm được sử dụng để loại bỏ tất cả các phần tử của vùng chứa vector.
+
+ten-vector.clear();
+
+Ví dụ:
+
+/ Modifiers in vector 
+#include <bits/stdc++.h> 
+#include <vector> 
+using namespace std; 
+   
+int main() 
+{ 
+    // Assign vector 
+    vector<int> vec; 
+   
+    // fill the array with 12 seven times 
+    vec.assign(7, 12); 
+   
+    cout << "The vector elements are: "; 
+    for (int i = 0; i < 7; i++) 
+        cout << vec[i] << " "; 
+   
+    // inserts 24 to the last position 
+    vec.push_back(24); 
+    int s = vec.size(); 
+    cout << "nThe last element is: " << vec[s - 1]; 
+ 
+     // prints the vector 
+    cout << "nThe vector elements after push back are: "; 
+    for (int i = 0; i < vec.size(); i++) 
+    cout << vec[i] << " "; 
+   
+    // removes last element 
+    vec.pop_back(); 
+   
+    // prints the vector 
+    cout << "nThe vector elements after pop_back are: "; 
+    for (int i = 0; i < vec.size(); i++) 
+        cout << vec[i] << " "; 
+   
+    // inserts 10 at the beginning 
+    vec.insert(vec.begin(), 10); 
+   
+    cout << "nThe first element after insert command is: " << vec[0]; 
+   
+    // removes the first element 
+    vec.erase(vec.begin()); 
+   
+    cout << "nThe first element after erase command is: " << vec[0]; 
+   
+    // inserts at the beginning 
+    vec.emplace(vec.begin(), 5); 
+    cout << "nThe first element emplace is: " << vec[0]; 
+   
+    // Inserts 20 at the end 
+    vec.emplace_back(20); 
+    s = vec.size(); 
+    cout << "nThe last element after emplace_back is: " << vec[s - 1]; 
+   
+    // erases the vector 
+    vec.clear(); 
+    cout << "nVector size after clear(): " << vec.size(); 
+   
+    // two vector to perform swap 
+    vector<int> obj1, obj2; 
+    obj1.push_back(2); 
+    obj1.push_back(4); 
+    obj2.push_back(6); 
+    obj2.push_back(8); 
+   
+    cout << "nnVector 1: "; 
+    for (int i = 0; i < obj1.size(); i++) 
+        cout << obj1[i] << " "; 
+   
+    cout << "nVector 2: "; 
+    for (int i = 0; i < obj2.size(); i++) 
+        cout << obj2[i] << " "; 
+   
+    // Swaps obj1 and obj2 
+    obj1.swap(obj2); 
+   
+    cout << "nAfter Swap nVector 1: "; 
+    for (int i = 0; i < obj1.size(); i++) 
+        cout << obj1[i] << " "; 
+   
+    cout << "nVector 2: "; 
+    for (int i = 0; i < obj2.size(); i++) 
+        cout << obj2[i] << " "; 
+}Bạn có thể thấy cách sử dụng các hàm thuộc nhóm Modifiers mà chúng ta đã nghiên cứu ở trên qua ví dụ thực tiễn.
+
+  Vector trong C++
+Iterators
+begin(): đặt iterator đến phần tử đầu tiên trong vectorten-vector.begin();
+end(): đặt iterator đến sau phần tử cuối cùng trong vectorten-vector.end();
+rbegin(): đặt reverse iterator (trình lặp đảo) đến phần tử cuối cùng trong vector (reverse begin). Nó di chuyển từ phần tử cuối cùng đến phần tử đầu tiên
+ten-vector.rbegin();
+
+rend(): đặt reverse iterator (trình lặp đảo) đến phần tử đầu tiên trong vector (reverse end)
+
+ten-vector.rend();
+
+cbegin(): đặt constant iterator (trình vòng lặp) đến phần tử đầu tiên trong vectorten-vector.cbegin();
+cend(): đặt constant iterator (trình vòng lặp) đến phần tử cuối cùng trong vectorten-vector.cend();
+crbegin(): đặt constant reverse iterator (trình lặp đảo liên tục) đến phần tử cuối cùng trong vector (reverse begin). Nó di chuyển từ phần tử cuối cùng đến phần tử đầu tiênten-vector.cbregin();
+crend(): đặt constant reverse iterator (trình lặp đảo liên tục) đến phần tử đầu tiên trong vector (reverse end)ten-vector.crend();
+Ví dụ 1:
+
+#include <iostream> 
+#include <vector> 
+   
+using namespace std; 
+   
+int main() 
+{ 
+    vector<int> vec1; 
+   
+    for (int i = 1; i <= 10; i++) 
+        vec1.push_back(i); 
+   
+    cout << "Understanding begin() and end() function: " << endl; 
+    for (auto i = vec1.begin(); i != vec1.end(); ++i) 
+        cout << *i << " "; 
+ 
+    return 0; 
+}
+Output:
+
+vector-trong-c++
+Trong ví dụ trên, chúng ta có thể thấy cách sử dụng hàm begin() và end(). Đầu tiên, chúng ta xác định một vector là vec1, chúng đẩy lùi các giá trị trong đó từ 1 đến 10 bằng cách sử dụng vòng lặp for. Sau đó, chúng in các giá trị của các vector của chúng tôi bằng cách sử dụng vòng lặp for, chúng tôi sử dụng hàm begin() và end() để chỉ định điểm đầu và điểm cuối của vòng lặp for của chúng tôi.
+
+Ví dụ 2:
+
+// C++ program to illustrate the 
+// iterators in vector 
+#include <iostream> 
+#include <vector> 
+
+using namespace std; 
+
+int main() 
+{ 
+    vector<int> g1; 
+
+    for (int i = 1; i <= 5; i++) 
+        g1.push_back(i); 
+
+    cout << "Output of begin and end: "; 
+    for (auto i = g1.begin(); i != g1.end(); ++i) 
+        cout << *i << " "; 
+
+    cout << "\nOutput of cbegin and cend: "; 
+    for (auto i = g1.cbegin(); i != g1.cend(); ++i) 
+        cout << *i << " "; 
+
+    cout << "\nOutput of rbegin and rend: "; 
+    for (auto ir = g1.rbegin(); ir != g1.rend(); ++ir) 
+        cout << *ir << " "; 
+
+    cout << "\nOutput of crbegin and crend : "; 
+    for (auto ir = g1.crbegin(); ir != g1.crend(); ++ir) 
+        cout << *ir << " "; 
+
+    return 0; 
+}
+Output:
+
+vector-trong-c++
+Ví dụ 3:
+
+// CPP program to illustrate working of crbegin()  
+// crend() 
+#include <iostream> 
+#include <vector> 
+using namespace std; 
+
+int main () 
+{ 
+  // initializing vector with values 
+  vector<int> vect = {10, 20, 30, 40, 50}; 
+
+  // for loop with crbegin and crend 
+  for (auto i = vect.crbegin(); i != vect.crend(); i++) 
+    cout << ' ' << *i;  //printing results 
+
+  cout << '\n'; 
+  return 0; 
+}
+Output:
+
+50 40 30 20 10
+
+Capacity
+size(): hàm sẽ trả về số lượng phần tử đang được sử dụng trong vectorten-vector.size();
+max_size(): hàm trả về số phần tử tối đa mà vector có thể chứaten-vector.max_size();
+capacity(): hàm trả về số phần tử được cấp phát cho vector nằm trong bộ nhớten-vector.capacity();
+resize(n): Hàm này thay đổi kích thước vùng chứa để nó chứa đủ n phần tử. Nếu kích thước hiện tại của vector lớn hơn n thì các phần tử phía sau sẽ bị xóa khỏi vector và ngược lại nếu kích thước hiện tại nhỏ hơn n thì các phần tử bổ sung sẽ được chèn vào phía sau vectorten-vector.resize(int n, int value);
+empty(): Trả về liệu vùng chứa có trống hay không, nếu trống thì trả về True, nếu có phần tử thì trả về Falseten-vector.empty();
+shrink_to_fit(): Giảm dung lượng của vùng chứa để phù hợp với kích thước của nó và hủy tất cả các phần tử vượt quá dung lượngten-vector.shrink_to_fit();
+reserve(n): hàm cấp cho vector số dung lượng vừa đủ để chứa n phần tửten-vector.reserve(n);
+Ví dụ:
+
+#include <iostream> 
+#include <vector> 
+   
+using namespace std; 
+   
+int main() 
+{ 
+    vector<int> vec1; 
+   
+    for (int i = 1; i <= 10; i++) 
+        vec1.push_back(i); 
+   
+    cout << "Size of our vector: " << vec1.size(); 
+    cout << "nCapacity of our vector: " << vec1.capacity(); 
+    cout << "nMax_Size of our vector: " << vec1.max_size(); 
+   
+    // resizes the vector size to 4 
+    vec1.resize(4); 
+   
+    // prints the vector size after resize() 
+    cout << "nSize of our vector after resize: " << vec1.size(); 
+   
+    // checks if the vector is empty or not 
+    if (vec1.empty() == false) 
+        cout << "nVector is not empty"; 
+    else
+        cout << "nVector is empty"; 
+   
+    return 0; 
+}
+Output:
+
+capacity-vectors-in-c++
+
+Chú ý: Khi thay đổi kích thước mảng vector, các giá trị của phần tử hiện có cần giữ nguyên, thì các phần tử mới được khởi tạo bằng giá trị mặc định của kiểu dữ liệu mảng.
+
+Chúng ta có thể thấy cách hoạt động của các hàm capacity như đã thảo luận ở trên.
+
+Element access
+at(g): Trả về một tham chiếu đến phần tử ở vị trí ‘g’ trong vectorten-vector.at(position);
+data(): Trả về một con trỏ trực tiếp đến (memory array) bộ nhớ mảng được vector sử dụng bên trong để lưu trữ các phần tử thuộc sở hữu của nóten-vector.data();
+front(): hàm dùng để lấy ra phần tử đầu tiên của vectorten-vector.front();
+back(): hàm dùng để lấy ra phần tử cuối cùng của vectorten-vector.back();
+Ví dụ: 
+
+// C++ program to illustrate the 
+// element accesser in vector 
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+int main() 
+{ 
+    vector<int> g1; 
+  
+    for (int i = 1; i <= 10; i++) 
+        g1.push_back(i * 10); 
+  
+    cout << "\nReference operator [g] : g1[2] = " << g1[2]; 
+  
+    cout << "\nat : g1.at(4) = " << g1.at(4); 
+  
+    cout << "\nfront() : g1.front() = " << g1.front(); 
+  
+    cout << "\nback() : g1.back() = " << g1.back(); 
+  
+    // pointer to the first element 
+    int* pos = g1.data(); 
+  
+    cout << "\nThe first element is " << *pos; 
+    return 0; 
+}
+Out
