@@ -48,6 +48,18 @@ HÀM NÀY CŨNG CÓ THỂ LÀM DUPLICATED SỐ
 Ex: v.erase(v.begin()+2,v.begin())
 Case : 1 2 3 4 5 6 7
 SAU KHI ERASE SE LA: 1 2 1 2 3 4 5 6 7
+THÊM MỘT CÔNG DỤNG NỮA :
+Để xóa các phần tử trong vector bạn có thể dùng hàm erase(first, last). Trong đó first và last là 2 iterator. Ví dụ:
+
+Để xóa 2 phần tử đầu tiên trong vector bạn có thể làm như sau:
+
+v.erase(v.begin(), v.begin() + 2);
+Để xóa tất cả các phần tử có chỉ số từ l tới r bạn làm như sau:
+
+v.erase(l, r + 1);
+Để xóa 3 phần tử cuối cùng trong vector bạn có thể làm như sau:
+
+v.erase(v.end() - 3, v.end());
 
 6. emplace(): Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
 
