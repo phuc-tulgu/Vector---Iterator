@@ -44,6 +44,11 @@ Erasing range of elements:
 
 vector.erase( vector.begin() + 3, vector.begin() + 5 ); // Deleting from fourth element to sixth element
 
+HÀM NÀY CŨNG CÓ THỂ LÀM DUPLICATED SỐ
+Ex: v.erase(v.begin()+2,v.begin())
+Case : 1 2 3 4 5 6 7
+SAU KHI ERASE SE LA: 1 2 1 2 3 4 5 6 7
+
 6. emplace(): Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
 
 ten-vector.emplace(ten-vector.position, element);
