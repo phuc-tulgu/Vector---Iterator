@@ -1,0 +1,1 @@
+Khi tạo vòng lặp FOR để input vector vô thì phải đựat i = 0 nếu không thì sẽ bị tràn giá trị (lỗi) - chưa hiểu vì sao lắm .
